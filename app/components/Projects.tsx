@@ -58,7 +58,7 @@ export default function Projects() {
                                         <span className="text-xs font-bold uppercase tracking-widest text-primary-light">
                                             {project.type}
                                         </span>
-                                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-muted transition-colors hover:text-primary-light">
+                                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-foreground/5 text-muted transition-colors hover:text-primary-light">
                                             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                             </svg>
@@ -74,7 +74,7 @@ export default function Projects() {
                                         {project.tags.map((tag) => (
                                             <span
                                                 key={tag}
-                                                className="rounded-lg bg-white/5 px-2.5 py-1 text-xs font-medium text-muted border border-white/5"
+                                                className="rounded-lg bg-foreground/5 px-2.5 py-1 text-xs font-medium text-muted border border-border/20"
                                             >
                                                 {tag}
                                             </span>

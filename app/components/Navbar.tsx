@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
     { label: "Home", href: "#home" },
@@ -54,15 +55,19 @@ export default function Navbar() {
                     ))}
                 </ul>
 
-                {/* Resume button (desktop) */}
-                <a
-                    href="https://drive.google.com/file/d/1vnc44KAr2aNTi5k0ITYVmGtbb2CZwiRl/view?usp=sharing"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hidden rounded-full border border-primary/30 bg-primary/10 px-5 py-2 text-sm font-medium text-primary-light transition-all hover:bg-primary/20 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 md:inline-flex"
-                >
-                    Resume
-                </a>
+                {/* Desktop nav controls */}
+                <div className="hidden items-center gap-4 md:flex">
+                    <ThemeToggle />
+                    {/* Resume button (desktop) */}
+                    <a
+                        href="https://drive.google.com/file/d/1vnc44KAr2aNTi5k0ITYVmGtbb2CZwiRl/view?usp=sharing"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-full border border-primary/30 bg-primary/10 px-5 py-2 text-sm font-medium text-primary-light transition-all hover:bg-primary/20 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10"
+                    >
+                        Resume
+                    </a>
+                </div>
 
                 {/* Mobile hamburger */}
                 <button
@@ -104,12 +109,16 @@ export default function Navbar() {
                                 </a>
                             </li>
                         ))}
-                        <li>
+                        <li className="flex items-center justify-between border-t border-border pt-4 mt-2">
+                            <span className="text-sm font-medium text-muted">Appearance</span>
+                            <ThemeToggle />
+                        </li>
+                        <li className="mt-2 text-center">
                             <a
                                 href="https://drive.google.com/file/d/1vnc44KAr2aNTi5k0ITYVmGtbb2CZwiRl/view?usp=sharing"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex rounded-full border border-primary/30 bg-primary/10 px-5 py-2 text-sm font-medium text-primary-light"
+                                className="inline-flex w-full items-center justify-center rounded-full border border-primary/30 bg-primary/10 px-5 py-2.5 text-sm font-medium text-primary-light"
                             >
                                 Resume
                             </a>

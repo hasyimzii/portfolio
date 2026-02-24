@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 export default function Hero() {
     const sectionRef = useRef<HTMLElement>(null);
     const [roleIndex, setRoleIndex] = useState(0);
-    const roles = ["Backend Developer", "Laravel Expert", "Node.js Developer", "Go Developer"];
+    const roles = ["Laravel Expert", "Node.js Developer", "Go Developer"];
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -38,10 +38,10 @@ export default function Hero() {
 
             {/* Grid pattern overlay */}
             <div
-                className="pointer-events-none absolute inset-0 opacity-[0.03]"
+                className="pointer-events-none absolute inset-0 opacity-[0.05] dark:opacity-[0.03]"
                 style={{
                     backgroundImage:
-                        "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
+                        "linear-gradient(currentColor 1px, transparent 1px), linear-gradient(90deg, currentColor 1px, transparent 1px)",
                     backgroundSize: "60px 60px",
                 }}
             />
@@ -69,7 +69,14 @@ export default function Hero() {
                     </h1>
 
                     <div data-animate className="opacity-0 mb-3">
-                        <p className="inline-block font-mono text-lg font-semibold tracking-wide text-primary-light sm:text-xl border-r-3 border-primary animate-typing whitespace-nowrap overflow-hidden" key={roleIndex}>
+                        <p
+                            className="inline-block font-mono text-lg font-semibold tracking-wide text-primary-light sm:text-xl border-r-3 border-primary whitespace-nowrap overflow-hidden"
+                            key={roleIndex}
+                            style={{
+                                width: `${roles[roleIndex].length}ch`,
+                                animation: `typing-text 3s steps(${roles[roleIndex].length}, end), blink-cursor 0.75s step-end infinite`
+                            }}
+                        >
                             {roles[roleIndex]}
                         </p>
                     </div>
