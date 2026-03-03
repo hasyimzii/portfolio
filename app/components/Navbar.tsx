@@ -60,7 +60,7 @@ export default function Navbar() {
                     <ThemeToggle />
                     {/* Resume button (desktop) */}
                     <a
-                        href="https://drive.google.com/file/d/1vnc44KAr2aNTi5k0ITYVmGtbb2CZwiRl/view?usp=sharing"
+                        href="https://drive.google.com/file/d/1mr-CyfdtHrCUSYiH4TB75v3mLgpT5zhp/view?usp=sharing"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="rounded-full border border-primary/30 bg-primary/10 px-5 py-2 text-sm font-medium text-primary-light transition-all hover:bg-primary/20 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10"
@@ -115,7 +115,7 @@ export default function Navbar() {
                         </li>
                         <li className="mt-2 text-center">
                             <a
-                                href="https://drive.google.com/file/d/1vnc44KAr2aNTi5k0ITYVmGtbb2CZwiRl/view?usp=sharing"
+                                href="https://drive.google.com/file/d/1mr-CyfdtHrCUSYiH4TB75v3mLgpT5zhp/view?usp=sharing"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex w-full items-center justify-center rounded-full border border-primary/30 bg-primary/10 px-5 py-2.5 text-sm font-medium text-primary-light"
