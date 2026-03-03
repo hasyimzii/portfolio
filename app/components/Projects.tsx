@@ -9,50 +9,94 @@ interface Project {
     name: string;
     description: string;
     company: string;
-    responsibilities: string[];
-    gradient: string;
+    tech: "Laravel" | "Node.js" | "Go";
+    features: string[];
     image?: string;
 }
-
 const projects: Project[] = [
     {
-        name: "Proton",
-        description: "Pest management service app",
+        name: "Lassie Manna",
+        description: "Marketplace membership app",
         company: "Ordo Apps",
-        responsibilities: [
-            "Backend API for web & mobile",
-            "Integrate web Features",
-            "Enterprise resource management",
-            "Schedule management with calendar",
-            "Report export in PDF and Excel",
+        tech: "Laravel",
+        features: [
+            "Marketplace transaction sync",
+            "Membership tier & point bonus",
+            "Reward catalog & claim",
         ],
-        gradient: "from-indigo-600 to-cyan-400",
+        image: "/projects/lassie-manna.png",
+    },
+    {
+        name: "Cek Selingkuh",
+        description: "AI whatsapp cheating analyzer",
+        company: "Ordo Apps",
+        tech: "Node.js",
+        features: [
+            "AI analyzer for whatsapp chat",
+            "Review using sentiment analysis",
+            "Payment gateway integration",
+        ],
+        image: "/projects/cek-selingkuh.png",
+    },
+    {
+        name: "Navcomm",
+        description: "Vessel management service app",
+        company: "Ordo Apps",
+        tech: "Laravel",
+        features: [
+            "Vessel management",
+            "Document management & export PDF",
+            "Live group chat",
+        ],
+        image: "/projects/navcomm.png",
+    },
+    {
+        name: "Fuomo",
+        description: "Digital product marketplace",
+        company: "Ordo Apps",
+        tech: "Laravel",
+        features: [
+            "Digital product management",
+            "Creator wishlists & support tipping",
+            "Payment gateway integration",
+        ],
+        image: "/projects/fuomo.png",
+    },
+    {
+        name: "Xymart",
+        description: "Product market & delivery app",
+        company: "Ordo Apps",
+        tech: "Laravel",
+        features: [
+            "Minimarket product management",
+            "Driver delivery service",
+            "Payment gateway integration",
+        ],
+        image: "/projects/xymart.png",
     },
     {
         name: "Accounting App",
         description: "Business accounting app",
         company: "Ordo Apps",
-        responsibilities: [
-            "Backend API for web",
-            "Integrate web Features",
-            "Item product management",
-            "Report export in PDF",
-            "Marketplace integration",
+        tech: "Laravel",
+        features: [
+            "Marketplace transaction sync",
+            "Warehouse item management",
+            "Reporting & export PDF Excel",
         ],
-        gradient: "from-emerald-500 to-teal-400",
+        image: "/projects/accounting-app.png",
     },
     {
-        name: "Xymart",
-        description: "Product delivery app",
+        name: "Proton",
+        description: "Pest management service app",
         company: "Ordo Apps",
-        responsibilities: [
-            "Backend API for web & mobile",
-            "Integrate web Features",
-            "Minimarket product management",
-            "Payment gateway",
-            "Driver shipping",
+        tech: "Laravel",
+        features: [
+            "Resource management",
+            "Schedule management calendar",
+            "Reporting & export PDF Excel",
         ],
-        gradient: "from-orange-500 to-rose-500",
+        image: "/projects/proton.png",
     },
 ];
 
@@ -79,17 +123,18 @@ export default function Projects() {
                             <div className="group card-hover glass h-full rounded-2xl overflow-hidden flex flex-col">
                                 {/* Image or CSS Mockup Fallback */}
                                 {project.image ? (
-                                    <div className="relative h-48 sm:h-56 w-full overflow-hidden flex-shrink-0">
+                                    <div className="relative aspect-[375/193] w-full overflow-hidden flex-shrink-0">
                                         <Image
                                             src={project.image}
                                             alt={`${project.name} screenshot`}
-                                            fill
-                                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                            width={375}
+                                            height={193}
+                                            className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
                                         />
                                     </div>
                                 ) : (
                                     <div
-                                        className={`relative h-48 sm:h-56 w-full bg-gradient-to-br ${project.gradient} p-6 overflow-hidden flex-shrink-0`}
+                                        className={`relative aspect-[375/193] w-full bg-gradient-to-br from-indigo-600 to-cyan-400 p-6 overflow-hidden flex-shrink-0`}
                                     >
                                         <div className="absolute inset-0 bg-black/10"></div>
                                         <div className="absolute inset-x-8 -bottom-16 h-56 bg-surface rounded-t-xl shadow-2xl border border-white/10 p-4 transform transition-transform duration-500 group-hover:-translate-y-4 flex flex-col gap-3">
@@ -110,21 +155,29 @@ export default function Projects() {
                                         </h3>
                                         <p className="text-muted mt-1 font-medium">{project.description}</p>
 
-                                        <div className="mt-3 flex items-center gap-2 text-sm text-primary-light bg-primary/10 w-fit px-3 py-1.5 rounded-full">
-                                            <Building2 className="w-4 h-4" />
-                                            <span className="font-semibold">{project.company}</span>
+                                        <div className="mt-3 flex items-center gap-3">
+                                            <div className="flex items-center gap-2 text-sm text-primary-light bg-primary/10 w-fit px-3 py-1.5 rounded-full border border-primary/10">
+                                                <Building2 className="w-4 h-4" />
+                                                <span className="font-semibold">{project.company}</span>
+                                            </div>
+                                            <div className={`text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-md border shadow-sm ${project.tech === 'Laravel' ? 'bg-red-500/10 text-red-500 border-red-500/20' :
+                                                project.tech === 'Go' ? 'bg-blue-500/10 text-blue-500 border-blue-500/20' :
+                                                    'bg-green-500/10 text-green-500 border-green-500/20'
+                                                }`}>
+                                                {project.tech}
+                                            </div>
                                         </div>
                                     </div>
 
                                     <div className="mt-auto pt-4 border-t border-border/50">
                                         <h4 className="text-sm font-bold uppercase tracking-wider text-muted mb-3">
-                                            Responsibilities
+                                            Features
                                         </h4>
                                         <ul className="space-y-2">
-                                            {project.responsibilities.map((resp, idx) => (
+                                            {project.features.map((feat, idx) => (
                                                 <li key={idx} className="flex-start flex gap-2.5 text-sm">
                                                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent flex-none" />
-                                                    <span className="text-foreground/80 leading-snug">{resp}</span>
+                                                    <span className="text-foreground/80 leading-snug">{feat}</span>
                                                 </li>
                                             ))}
                                         </ul>
