@@ -1,7 +1,8 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import ScrollReveal from "./ScrollReveal";
-import { CheckCircle2, Building2 } from "lucide-react";
+import { CheckCircle2, Building2, ChevronLeft, ChevronRight } from "lucide-react";
 
 import Image from "next/image";
 
@@ -11,12 +12,12 @@ interface Project {
     company: string;
     tech: "Laravel" | "Node.js" | "Go";
     features: string[];
-    image?: string;
+    images?: string[];
 }
 const projects: Project[] = [
     {
-        name: "Lassie Manna",
-        description: "Marketplace membership app",
+        name: "Cosmetic Membership System",
+        description: "Membership system for cosmetic products on marketplace",
         company: "Ordo Apps",
         tech: "Laravel",
         features: [
@@ -24,47 +25,63 @@ const projects: Project[] = [
             "Membership tier & point bonus",
             "Reward catalog & claim",
         ],
-        image: "/projects/lassie-manna.png",
-    },
-    {
-        name: "Cek Selingkuh",
-        description: "AI whatsapp cheating analyzer",
-        company: "Ordo Apps",
-        tech: "Node.js",
-        features: [
-            "AI analyzer for whatsapp chat",
-            "Review using sentiment analysis",
-            "Payment gateway integration",
+        images: [
+            "/projects/cosmetic-membership-1.png",
+            "/projects/cosmetic-membership-2.png",
+            "/projects/cosmetic-membership-3.png",
         ],
-        image: "/projects/cek-selingkuh.png",
     },
     {
-        name: "Navcomm",
-        description: "Vessel management service app",
+        name: "Housing Management System",
+        description: "Operational & financial management for housing business",
         company: "Ordo Apps",
         tech: "Laravel",
         features: [
-            "Vessel management",
-            "Document management & export PDF",
-            "Live group chat",
+            "Housing unit management",
+            "Cashier sales operation",
+            "Financial reporting",
         ],
-        image: "/projects/navcomm.png",
+        images: [
+            "/projects/housing-management-1.png",
+            "/projects/housing-management-2.png",
+            "/projects/housing-management-3.png",
+        ],
     },
     {
-        name: "Fuomo",
-        description: "Digital product marketplace",
+        name: "Digital Product Marketplace",
+        description: "Marketplace & donation system for digital product creators",
         company: "Ordo Apps",
         tech: "Laravel",
         features: [
             "Digital product management",
-            "Creator wishlists & support tipping",
+            "Creator wishlists & tipping",
             "Payment gateway integration",
         ],
-        image: "/projects/fuomo.png",
+        images: [
+            "/projects/digital-product-1.png",
+            "/projects/digital-product-2.png",
+            "/projects/digital-product-3.png",
+        ],
     },
     {
-        name: "Xymart",
-        description: "Product market & delivery app",
+        name: "Vessel Service Management App",
+        description: "Management, schedule, & report app for vessel service",
+        company: "Ordo Apps",
+        tech: "Laravel",
+        features: [
+            "Vessel service management",
+            "Document management & export PDF",
+            "Live group chat",
+        ],
+        images: [
+            "/projects/vessel-service-1.png",
+            "/projects/vessel-service-2.png",
+            "/projects/vessel-service-3.png",
+        ],
+    },
+    {
+        name: "Product Marketplace & Delivery App",
+        description: "Marketplace for minimarket products with delivery service",
         company: "Ordo Apps",
         tech: "Laravel",
         features: [
@@ -72,23 +89,15 @@ const projects: Project[] = [
             "Driver delivery service",
             "Payment gateway integration",
         ],
-        image: "/projects/xymart.png",
-    },
-    {
-        name: "Accounting App",
-        description: "Business accounting app",
-        company: "Ordo Apps",
-        tech: "Laravel",
-        features: [
-            "Marketplace transaction sync",
-            "Warehouse item management",
-            "Reporting & export PDF Excel",
+        images: [
+            "/projects/product-marketplace-1.png",
+            "/projects/product-marketplace-2.png",
+            "/projects/product-marketplace-3.png",
         ],
-        image: "/projects/accounting-app.png",
     },
     {
-        name: "Proton",
-        description: "Pest management service app",
+        name: "Pest Service Management App",
+        description: "Management, schedule, & report app for pest control service",
         company: "Ordo Apps",
         tech: "Laravel",
         features: [
@@ -96,9 +105,89 @@ const projects: Project[] = [
             "Schedule management calendar",
             "Reporting & export PDF Excel",
         ],
-        image: "/projects/proton.png",
+        images: [
+            "/projects/pest-service-1.png",
+            "/projects/pest-service-2.png",
+            "/projects/pest-service-3.png",
+        ],
     },
 ];
+
+const ProjectCarousel = ({ images, name }: { images: string[], name: string }) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        if (images.length <= 1) return;
+        const interval = setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % images.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, [images.length, currentIndex]);
+
+    const nextImage = (e: React.MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setCurrentIndex((prev) => (prev + 1) % images.length);
+    };
+
+    const prevImage = (e: React.MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    };
+
+    return (
+        <div className="relative aspect-[375/193] w-full overflow-hidden flex-shrink-0 group/carousel bg-surface-light">
+            {images.map((img, idx) => (
+                <div
+                    key={idx}
+                    className={`absolute inset-0 transition-opacity duration-1000 ${idx === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0 delay-300"
+                        }`}
+                >
+                    <a href={img} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
+                        <Image
+                            src={img}
+                            alt={`${name} screenshot ${idx + 1}`}
+                            width={375}
+                            height={193}
+                            className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                        />
+                    </a>
+                </div>
+            ))}
+
+            {images.length > 1 && (
+                <>
+                    <button
+                        onClick={prevImage}
+                        aria-label="Previous image"
+                        className="absolute left-2 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center bg-black/50 hover:bg-black/70 text-white p-1.5 rounded-full opacity-0 group-hover/carousel:opacity-100 transition-opacity"
+                    >
+                        <ChevronLeft className="w-5 h-5" />
+                    </button>
+                    <button
+                        onClick={nextImage}
+                        aria-label="Next image"
+                        className="absolute right-2 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center bg-black/50 hover:bg-black/70 text-white p-1.5 rounded-full opacity-0 group-hover/carousel:opacity-100 transition-opacity"
+                    >
+                        <ChevronRight className="w-5 h-5" />
+                    </button>
+
+                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+                        {images.map((_, idx) => (
+                            <button
+                                key={idx}
+                                aria-label={`Go to slide ${idx + 1}`}
+                                onClick={(e) => { e.preventDefault(); e.stopPropagation(); setCurrentIndex(idx); }}
+                                className={`w-2 h-2 rounded-full transition-all ${idx === currentIndex ? 'bg-primary scale-110' : 'bg-white/60 hover:bg-white/90'}`}
+                            />
+                        ))}
+                    </div>
+                </>
+            )}
+        </div>
+    );
+};
 
 export default function Projects() {
     return (
@@ -122,16 +211,11 @@ export default function Projects() {
                         <ScrollReveal key={i}>
                             <div className="group card-hover glass h-full rounded-2xl overflow-hidden flex flex-col">
                                 {/* Image or CSS Mockup Fallback */}
-                                {project.image ? (
-                                    <div className="relative aspect-[375/193] w-full overflow-hidden flex-shrink-0">
-                                        <Image
-                                            src={project.image}
-                                            alt={`${project.name} screenshot`}
-                                            width={375}
-                                            height={193}
-                                            className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
-                                        />
-                                    </div>
+                                {project.images ? (
+                                    <ProjectCarousel
+                                        images={project.images}
+                                        name={project.name}
+                                    />
                                 ) : (
                                     <div
                                         className={`relative aspect-[375/193] w-full bg-gradient-to-br from-indigo-600 to-cyan-400 p-6 overflow-hidden flex-shrink-0`}
@@ -150,10 +234,10 @@ export default function Projects() {
 
                                 <div className="flex-1 p-6 flex flex-col">
                                     <div className="mb-4">
-                                        <h3 className="text-2xl font-bold text-foreground">
+                                        <h3 className="text-xl font-bold text-foreground leading-tight">
                                             {project.name}
                                         </h3>
-                                        <p className="text-muted mt-1 font-medium">{project.description}</p>
+                                        <p className="text-sm text-muted mt-1.5 font-medium leading-relaxed">{project.description}</p>
 
                                         <div className="mt-3 flex items-center gap-3">
                                             <div className="flex items-center gap-2 text-sm text-primary-light bg-primary/10 w-fit px-3 py-1.5 rounded-full border border-primary/10">

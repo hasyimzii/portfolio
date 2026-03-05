@@ -28,7 +28,7 @@ export default function Navbar() {
         <nav
             id="navbar"
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-                ? "glass shadow-lg shadow-black/20"
+                ? "bg-background shadow-lg shadow-black/20"
                 : "bg-transparent"
                 }`}
         >
@@ -96,7 +96,7 @@ export default function Navbar() {
                 className={`overflow-hidden transition-all duration-500 md:hidden ${mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                     }`}
             >
-                <div className="glass mx-4 mb-4 rounded-2xl px-6 py-4">
+                <div className="bg-background shadow-lg border border-border mx-4 mb-4 rounded-2xl px-6 py-4">
                     <ul className="flex flex-col gap-4">
                         {navItems.map((item) => (
                             <li key={item.href}>

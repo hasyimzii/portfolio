@@ -21,7 +21,6 @@ const skillCategories: SkillCategory[] = [
             "Next.js",
             "Go",
             "Go Fiber",
-            "GORM",
         ],
     },
     {
@@ -31,8 +30,8 @@ const skillCategories: SkillCategory[] = [
             "REST API",
             "OOP",
             "WebSocket",
+            "Queue",
             "Payment Gateway",
-            "Background Jobs",
             "Dependency Injection",
         ],
     },
@@ -44,8 +43,6 @@ const skillCategories: SkillCategory[] = [
             "PostgreSQL",
             "SQLite",
             "Redis",
-            "Data Structures",
-            "Database Migration",
         ],
     },
     {
