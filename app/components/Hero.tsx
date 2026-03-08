@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 export default function Hero() {
     const sectionRef = useRef<HTMLElement>(null);
     const [roleIndex, setRoleIndex] = useState(0);
-    const roles = ["Laravel Expert", "Node.js Developer", "Go Developer"];
+    const roles = ["Laravel Expert", "Node.js Developer"];
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -68,27 +68,30 @@ export default function Hero() {
                         <span className="gradient-text">Hasyim</span>
                     </h1>
 
-                    <div data-animate className="opacity-0 mb-3">
-                        <p
-                            className="inline-block font-mono text-lg font-semibold tracking-wide text-primary-light sm:text-xl border-r-3 border-primary whitespace-nowrap overflow-hidden"
+                    <div className="mb-3">
+                        <div
                             key={roleIndex}
-                            style={{
-                                width: `${roles[roleIndex].length}ch`,
-                                animation: `typing-text 3s steps(${roles[roleIndex].length}, end), blink-cursor 0.75s step-end infinite`
-                            }}
+                            className="inline-flex font-mono text-lg font-semibold tracking-wide text-primary-light sm:text-xl"
                         >
-                            {roles[roleIndex]}
-                        </p>
+                            {roles[roleIndex].split("").map((char, i) => (
+                                <span
+                                    key={`${roleIndex}-${i}`}
+                                    className="animate-char-in inline-block"
+                                    style={{ animationDelay: `${i * 0.04}s` }}
+                                >
+                                    {char === " " ? "\u00A0" : char}
+                                </span>
+                            ))}
+                        </div>
                     </div>
 
                     <p
                         data-animate
                         className="mb-8 max-w-lg text-base leading-relaxed text-muted opacity-0 sm:text-lg"
                     >
-                        Experienced in building scalable backend systems using{" "}
-                        <span className="font-medium text-foreground">Laravel</span>,{" "}
-                        <span className="font-medium text-foreground">Node.js</span>, and{" "}
-                        <span className="font-medium text-foreground">Go</span>.
+                        Experienced in building scalable website using{" "}
+                        <span className="font-medium text-foreground">Laravel</span>, and{" "}
+                        <span className="font-medium text-foreground">Node.js</span>.
                         Crafting clean, maintainable, and performant code.
                     </p>
 
@@ -106,7 +109,7 @@ export default function Hero() {
                             </svg>
                         </a>
                         <a
-                            href="#experience"
+                            href="#projects"
                             className="inline-flex items-center gap-2 rounded-full border border-border px-7 py-3 text-sm font-medium text-muted transition-all hover:border-primary/40 hover:text-foreground hover:bg-surface/50"
                         >
                             View My Work

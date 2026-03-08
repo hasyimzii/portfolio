@@ -24,7 +24,7 @@ const skillCategories: SkillCategory[] = [
         ],
     },
     {
-        name: "Backend & APIs",
+        name: "Web & APIs",
         icon: "⚙️",
         skills: [
             "REST API",

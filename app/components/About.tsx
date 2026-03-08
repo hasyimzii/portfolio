@@ -22,12 +22,12 @@ export default function About() {
                     <ScrollReveal className="lg:col-span-2">
                         <div className="glass rounded-2xl p-8">
                             <p className="mb-6 text-base leading-relaxed text-muted sm:text-lg">
-                                I&apos;m a passionate <span className="font-semibold text-foreground">Backend Developer</span> based in Surabaya, Indonesia.
+                                I&apos;m a passionate <span className="font-semibold text-foreground">Web Developer</span> based in Surabaya, Indonesia.
                                 With a strong foundation in{" "}
                                 <span className="text-primary-light">Laravel (PHP)</span>,{" "}
                                 <span className="text-primary-light">Node.js</span>, and{" "}
                                 <span className="text-primary-light">Go</span>, I specialize in
-                                architecting and implementing scalable backend systems and APIs.
+                                architecting and implementing scalable website systems and APIs.
                             </p>
                             <p className="mb-6 text-base leading-relaxed text-muted sm:text-lg">
                                 I&apos;m proficient in OOP, REST API design, database management, Redis,
