@@ -15,12 +15,11 @@ const skillCategories: SkillCategory[] = [
         skills: [
             "PHP",
             "Laravel",
-            "Livewire",
+            "JavaScript",
+            "TypeScript",
+            "JQuery",
             "Node.js",
-            "jQuery",
             "Next.js",
-            "Go",
-            "Go Fiber",
         ],
     },
     {
