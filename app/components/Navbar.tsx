@@ -24,15 +24,23 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    useEffect(() => {
+        if (mobileOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+    }, [mobileOpen]);
+
     return (
         <nav
             id="navbar"
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-                ? "bg-background shadow-lg shadow-black/20"
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || mobileOpen
+                ? "bg-background/80 backdrop-blur-lg shadow-lg shadow-black/5 border-b border-border/50"
                 : "bg-transparent"
                 }`}
         >
-            <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+            <div className="mx-auto flex max-w-5xl items-center justify-between px-8 py-4 sm:px-10">
                 {/* Logo */}
                 <a
                     href="#home"
@@ -93,10 +101,10 @@ export default function Navbar() {
 
             {/* Mobile menu */}
             <div
-                className={`overflow-hidden transition-all duration-500 md:hidden ${mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                className={`transition-all duration-300 md:hidden ${mobileOpen ? "max-h-[90vh] opacity-100 border-t border-border/50 overflow-y-auto" : "max-h-0 opacity-0 overflow-hidden"
                     }`}
             >
-                <div className="bg-background shadow-lg border border-border mx-4 mb-4 rounded-2xl px-6 py-4">
+                <div className="bg-background/95 backdrop-blur-xl px-6 py-6">
                     <ul className="flex flex-col gap-4">
                         {navItems.map((item) => (
                             <li key={item.href}>
