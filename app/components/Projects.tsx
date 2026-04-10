@@ -32,19 +32,19 @@ const projects: Project[] = [
         ],
     },
     {
-        name: "Housing Management System",
-        description: "Operational & financial management for housing business",
+        name: "Hotel Laundry Management System",
+        description: "Operational management for hotel laundry factory",
         company: "Ordo Apps",
         tech: "Laravel",
         features: [
-            "Housing unit management",
-            "Cashier sales operation",
-            "Financial reporting",
+            "Laundry service management",
+            "Washing to delivery tracking",
+            "Item inventory & reporting",
         ],
         images: [
-            "/projects/housing-management-1.png",
-            "/projects/housing-management-2.png",
-            "/projects/housing-management-3.png",
+            "/projects/laundry-management-1.png",
+            "/projects/laundry-management-2.png",
+            "/projects/laundry-management-3.png",
         ],
     },
     {
