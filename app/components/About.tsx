@@ -4,7 +4,7 @@ import ScrollReveal from "./ScrollReveal";
 
 export default function About() {
     const highlights = [
-        { label: "Years Experience", value: "4+", icon: "📅" },
+        { label: "Years Experience", value: "5+", icon: "📅" },
         { label: "Technologies", value: "15+", icon: "⚡" },
         { label: "GPA", value: "3.89", icon: "🎓" },
     ];
@@ -22,10 +22,12 @@ export default function About() {
                     <ScrollReveal className="lg:col-span-2">
                         <div className="glass rounded-2xl p-8">
                             <p className="mb-6 text-base leading-relaxed text-muted sm:text-lg">
-                                I&apos;m a passionate <span className="font-semibold text-foreground">Web Developer</span> based in Surabaya, Indonesia.
+                                I&apos;m a passionate <span className="font-semibold text-foreground">Software Engineer</span> based in Surabaya, Indonesia.
                                 With a strong foundation in{" "}
-                                <span className="text-primary-light">Laravel (PHP)</span>, and{" "}
-                                <span className="text-primary-light">Node.js</span>. I specialize in
+                                <span className="text-primary-light">Laravel (PHP)</span>, 
+                                <span className="text-primary-light">Node.js</span>, {" "}
+                                <span className="text-primary-light">Next.js</span>, and{" "}
+                                <span className="text-primary-light">ASP.NET</span>. I specialize in
                                 architecting and implementing scalable website systems and APIs.
                             </p>
                             <p className="mb-6 text-base leading-relaxed text-muted sm:text-lg">

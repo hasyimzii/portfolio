@@ -14,7 +14,7 @@ const certificates: Certificate[] = [
         title: "Pemrograman Go-Lang: Pemula sampai Mahir",
         issuer: "Udemy",
         description:
-            "Go Fundamentals, Standard Library, Modules, Unit Test, Goroutines, Context, Database, RESTful API, Dependency Injection, Logging, Generics Type, Database Migration, Validation, Go Fiber Framework, GORM, and Go Redis.",
+            "Go Standard Library, Modules, Context, Unit Test, Goroutines, RESTful API, Logging, Database Migration, Validation, Go Fiber Framework, GORM, and Go Redis.",
         icon: "🐹",
     },
     {

@@ -15,24 +15,26 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Muhammad Hasyim Asy'ari — Backend Developer",
+  title: "Muhammad Hasyim Asy'ari — Software Engineer",
   description:
-    "Backend Developer experienced in Laravel, Node.js, and Go. Building scalable, clean, and maintainable backend systems.",
+    "Experienced in building scalable website using Laravel, Node.js, and ASP.NET. Crafting clean, maintainable, and performant code.",
   keywords: [
-    "Backend Developer",
+    "Software Engineer",
     "Laravel",
+    "PHP",
+    "Next.js",
     "Node.js",
-    "Go",
-    "REST API",
+    "JavaScript",
+    "ASP.NET",
+    "C#",
+    "RESTful APIs",
     "Full Stack",
-    "Surabaya",
-    "Indonesia",
   ],
   authors: [{ name: "Muhammad Hasyim Asy'ari" }],
   openGraph: {
-    title: "Muhammad Hasyim Asy'ari — Backend Developer",
+    title: "Muhammad Hasyim Asy'ari — Software Engineer",
     description:
-      "Backend Developer experienced in Laravel, Node.js, and Go. Building scalable, clean, and maintainable backend systems.",
+      "Experienced in building scalable website using Laravel, Node.js, and ASP.NET. Crafting clean, maintainable, and performant code.",
     type: "website",
   },
 };

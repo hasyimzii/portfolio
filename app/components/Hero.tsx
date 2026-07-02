@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 export default function Hero() {
     const sectionRef = useRef<HTMLElement>(null);
     const [roleIndex, setRoleIndex] = useState(0);
-    const roles = ["Laravel Expert", "Node.js Developer"];
+    const roles = ["Laravel", "Node.js", "Next.js", "ASP.NET"];
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -90,8 +90,10 @@ export default function Hero() {
                         className="mb-8 max-w-lg text-base leading-relaxed text-muted opacity-0 sm:text-lg"
                     >
                         Experienced in building scalable website using{" "}
-                        <span className="font-medium text-foreground">Laravel</span>, and{" "}
-                        <span className="font-medium text-foreground">Node.js</span>.
+                        <span className="font-medium text-foreground">Laravel</span>, {" "}
+                        <span className="font-medium text-foreground">Node.js</span>, {" "}
+                        <span className="font-medium text-foreground">Next.js</span>, and{" "}
+                        <span className="font-medium text-foreground">ASP.NET</span>.
                         Crafting clean, maintainable, and performant code.
                     </p>
 
