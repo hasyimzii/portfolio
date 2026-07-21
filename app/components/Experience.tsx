@@ -19,7 +19,7 @@ const experiences: ExperienceItem[] = [
         period: "Jul 2026 — Present",
         location: "Surabaya, Indonesia",
         points: [
-            "Developed and optimized enterprise-grade backend systems using ASP.NET to support critical port logistics and supply chain management applications.",
+            "Developed and optimized enterprise-grade backend systems using ASP.NET and Node.js to support critical port logistics and supply chain management applications.",
             "Engineered robust APIs and integration modules to streamline port operations, including cargo tracking, vessel scheduling, or inventory management systems.",
             "Optimized database performance by fine-tuning complex SQL queries, stored procedures, and indexing strategies in both Oracle and PostgreSQL environments to minimize system latency.",
             "Collaborated with cross-functional teams to translate complex maritime and logistics business logic into clean, scalable, and maintainable code.",
